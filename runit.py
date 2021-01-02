@@ -104,7 +104,7 @@ def doit_with_gif():
   #  ip = "192.168.7.1"
   #  hw = "12:33"
     ip = "192.168.1.106"
-    hw = "98:f4:ab:38:7d:f4"
+    hw = "98:f4:ab:38:7d:f5"
 
 
     control = xled.ControlInterface(ip, hw)
@@ -226,7 +226,23 @@ def send_realtim2():
 
     return
 
+def test_new():
+    discovered_device = xled.discover.discover()
+  #  ip = discovered_device.ip_address
+  #  hw = discovered_device.hw_address
+    ip = "192.168.1.106"
+    hw = "98:f4:ab:38:7d:f4"
+
+    control = xled.ControlInterface(ip)
+    control.set_mode('demo')
+
+    time.sleep(1)
+
+    hi = xled.HighControlInterface(ip)
+    hi.turn_off()
+
 #doit()
 #do_gif()
-#doit_with_gif()
-send_realtim2()
+doit_with_gif()
+#send_realtim2()
+#test_new()
